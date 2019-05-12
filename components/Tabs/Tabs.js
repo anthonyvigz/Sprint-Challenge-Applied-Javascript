@@ -1,21 +1,25 @@
 class TabLink {
   constructor(tabElement){
     // assign this.tabElement to the tabElement DOM reference
-    // this.tabElement;
+    // this.tabElement;]
+    this.tabElement = tabElement;
     
     // Get the `data-tab` value from this.tabElement and store it here
     // this.tabData = ; 
+    this.tabData = this.tabElement.dataset.tab;
     
     // We need to find out if a user clicked 'all' cards or a specific category.  Follow the instructions below to accomplish this task:    
     
-    /* <- Delete this comment block when you work on the if statement
     // Check to see if this.tabData is equal to 'all'
-    if(){
+    if (this.tabData === 'all') {
       // If `all` is true, select all cards regardless of their data attribute values
       // this.cards = ;
+      this.cards = document.querySelectorAll('.card');
+
     } else {
       // else if `all` is false, only select the cards with matching this.tabData values
       // this.cards = ;
+      this.cards = document.querySelectorAll(`.card[data-tab="${this.tabData}"]`);
     }
     /* <- Delete this comment block when you work on the if statement
 
@@ -62,11 +66,15 @@ class TabCard {
 
 /* START HERE: 
 
-- Select all classes named ".tab" and assign that value to the tabs variable
+- Select all classes named ".tab" and assign that value to the tabs variable   */
 
-- With your selection in place, now chain a .forEach() method onto the tabs variable to iterate over the DOM NodeList
+/* - With your selection in place, now chain a .forEach() method onto the tabs variable to iterate over the DOM NodeList  */
 
-- In your .forEach() method's callback function, return a new instance of TabLink and pass in each tab as a parameter
+
+/* - In your .forEach() method's callback function, return a new instance of TabLink and pass in each tab as a parameter
 
 */
-let tabs = document.querySelectorAll();
+
+const tabs = document.querySelectorAll('.tab').forEach(tab => { 
+  return new TabLink(tab) 
+});
