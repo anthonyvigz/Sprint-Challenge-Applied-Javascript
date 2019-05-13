@@ -3,6 +3,8 @@ class Carousel {
 
         this.image = image;
 
+        console.log(image);
+
         this.currentIndex = 0;
         
         const leftButton = document.querySelector('.left-button');
@@ -22,8 +24,14 @@ class Carousel {
             images[i].style.display = 'none';
             }
         this.currentIndex++;
-        images[this.currentIndex].style.display = 'flex';
+        if (this.currentIndex < images.length) {
+            images[this.currentIndex].style.display = 'flex';
         }
+        else {
+            this.currentIndex = 0;
+            images[this.currentIndex].style.display = 'flex';
+        }
+    }
     
     changeImageLeft() {
         for (let i = 0; i < images.length; i++) {
