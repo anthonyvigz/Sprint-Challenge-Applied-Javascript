@@ -31,6 +31,7 @@ class Carousel {
             this.currentIndex = 0;
             images[this.currentIndex].style.display = 'flex';
         }
+        console.log(this.currentIndex);
     }
     
     changeImageLeft() {
@@ -38,9 +39,15 @@ class Carousel {
             images[i].style.display = 'none';
             }
         this.currentIndex--;
-        images[this.currentIndex].style.display = 'flex';
+        if (this.currentIndex === -1) {
+            this.currentIndex = (images.length - 1);
+            images[this.currentIndex].style.display = 'flex';
+        }
+        else {
+            images[this.currentIndex].style.display = 'flex';
         }
     }
+}
 
 let carousel = document.querySelector('.carousel');
 
